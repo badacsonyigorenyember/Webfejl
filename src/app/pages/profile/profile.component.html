@@ -1,0 +1,24 @@
+<div *ngIf="user">
+  <h1>Üdvözlünk, {{user.name.firstName}}!</h1>
+</div>
+<span>
+  <button mat-raised-button color="accent" routerLink="/create-property" >Ingatlan hozzáadása</button>
+</span>
+<div *ngIf="properties.length">
+  <table>
+    <tr>
+      <th>Város</th>
+      <th>Utca</th>
+      <th>Házszám</th>
+      <th>Terület</th>
+    </tr>
+    <tr *ngFor="let property of properties; let i = index;"
+        [ngStyle]="{'background-color' : i % 2 === 0 ? 'darkcyan' : 'cyan'}">
+      <td>{{property.city}}</td>
+      <td>{{property.address.street}}</td>
+      <td>{{property.address.number}}.</td>
+      <td>{{property.size}} m3</td>
+      <td style="width: 0.2em"><button mat-raised-button color="primary" (click)="modify">Módosítás</button><button mat-raised-button color="primary" (click)="delete(property.id)">Törlés</button></td>
+    </tr>
+  </table>
+</div>

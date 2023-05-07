@@ -1,0 +1,38 @@
+<div class="main_component">
+  <div class="div-flex">
+    <h1>Ingatlan hozzáadása</h1>
+    <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label for="city">Város: </mat-label>
+        <input matInput type="text" formControlName="city" />
+      </mat-form-field>
+      <div formGroupName="address" class="subForm">
+        <mat-form-field>
+          <mat-label for="street">Utca: </mat-label>
+          <input matInput type="text" formControlName="street" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label for="number">Házszám: </mat-label>
+          <input matInput type="number" min="1" formControlName="number" />
+        </mat-form-field>
+      </div>
+      <mat-form-field>
+        <mat-label for="size">Terület(m3): </mat-label>
+        <input matInput type="number" min="1" formControlName="size" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label for="dateOfBuild">Építés ideje: </mat-label>
+        <input matInput type="date" formControlName="dateOfBuild" />
+      </mat-form-field>
+
+      <div>
+        <span class="buttons">
+            <button mat-raised-button color="primary" type="submit">Létrehozás </button>
+        </span>
+        <span class="buttons">
+            <button mat-raised-button color="primary" (click)="goBack()">Vissza</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</div>

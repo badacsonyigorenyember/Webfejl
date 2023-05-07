@@ -1,0 +1,17 @@
+<div *ngIf="properties.length">
+  <table>
+    <tr>
+      <th>Város</th>
+      <th>Utca</th>
+      <th>Házszám</th>
+      <th>Terület</th>
+    </tr>
+    <tr *ngFor="let property of properties; let i = index;"
+        [ngStyle]="{'background-color' : i % 2 === 0 ? 'darkcyan' : 'cyan'}">
+      <td>{{property.city}}</td>
+      <td>{{property.address.street}}</td>
+      <td>{{property.address.number}}.</td>
+      <td>{{property.size}} m3</td>
+    </tr>
+  </table>
+</div>
